@@ -37,6 +37,19 @@
                 </form>
             </field>
         </record>
+        
+        <record id="view_account_own_check_tree_inherited" model="ir.ui.view">
+            <field name="name">account.payment.check.deposit.tree.inherited</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="l10n_latam_check.view_account_own_check_tree"/>
+            <field name="priority">5</field>
+            <field name="arch" type="xml">
+                <!-- Inserta tu campo después del último campo o donde desees -->
+                <xpath expr="//header" position="inside">
+                        <button name="action_open_deposit_wizard" type="object" string="Transferir"/>
+                </xpath>
+            </field>
+        </record>
 
         <!-- Acción para abrir el Wizard -->
         <record id="action_account_check_deposit_wizard" model="ir.actions.act_window">
