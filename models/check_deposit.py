@@ -48,7 +48,7 @@ class InfoWizard(models.TransientModel):
         for check in self.check_ids:
             # Crear la línea del extracto
             statement_line = self.env['account.bank.statement.line'].sudo().create({
-                'name': f"Depósito de cheque {check.check_number or ''} - {check.partner_id.name}",
+                'ref': f"Depósito de cheque {check.check_number or ''} - {check.partner_id.name}",
                 'date': self.date,
                 'amount': check.amount_company_currency_signed,
                 'payment_ref': f"Cheque {check.check_number}",
